@@ -7,89 +7,38 @@ void main() => runApp(XylophoneApp());
 class XylophoneApp extends StatelessWidget {
   void music(int number) {
     final player = AudioCache();
-    player.play('note$number.wav');
+    player.play('note$number.wav');}
+  
+     Expanded expanded(int number,Color color ) {
+      return Expanded(
+        child: FlatButton(
+          onPressed: () {
+            music(number);
+          },
+          child: Text(''),
+          color: color,
+        ),
+      );
   }
-void padding(int number){              
-  ('$number');
-}
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,
-            
             children: <Widget>[
-              Expanded(
-                              child: FlatButton(
-                  onPressed: () {
-                    music(1);
-                  },
-                  child: Text(''),
-                  color: Colors.red,
-                  
-                  
-                  
-                ),
-              ),
-              Expanded(
-                              child: FlatButton(
-                  onPressed: () {
-                    music(2);
-                  },
-                  child: Text(''),
-                  color: Colors.orange,
-                ),
-              ),
-              Expanded(
-                              child: FlatButton(
-                  onPressed: () {
-                    music(3);
-                  },
-                  child: Text(''),
-                  color: Colors.yellow,
-                ),
-              ),
-              Expanded(
-                              child: FlatButton(
-                  onPressed: () {
-                  music(4);
-                  },
-                  child: Text(''),
-                  color: Colors.green,
-                ),
-              ),
-              Expanded(
-                              child: FlatButton(
-                  onPressed: () {
-                    music(5);
-                  },
-                  child: Text(''),
-                  color: Colors.teal,
-                ),
-              ),
-              Expanded(
-                              child: FlatButton(
-                  onPressed: () {
-                   music(6);
-                  },
-                  child: Text(''),
-                  color: Colors.blue,
-                ),
-              ),
-              Expanded(
-                              child: FlatButton(
-                  onPressed: () {
-                   music(7);
-                  },
-                  child: Text(''),
-                  color: Colors.purple,
-                ),
-              ),
+              expanded(1,Colors.red),
+              expanded(2,Colors.orange),
+              expanded(3,Colors.yellow),
+              expanded(4,Colors.green),
+              expanded(5,Colors.teal),
+              expanded(6,Colors.blue),
+              expanded(7,Colors.purple),
+              
             ],
           ),
         ),
